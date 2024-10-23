@@ -6,6 +6,9 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 
 const app = express();
+app.get('/', (req, res) => {
+  res.send('Welcome to the Express API!');
+});
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -34,3 +37,5 @@ const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+module.exports = app;
