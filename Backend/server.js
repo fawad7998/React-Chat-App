@@ -6,13 +6,13 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Welcome to the Express API!');
+app.get('/', () => {
+  console.log('Api Working');
 });
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'https://react-chat-app-zfze.vercel.app/',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST'],
   },
 });
